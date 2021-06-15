@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Guardar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Componente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Marca" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Precio" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="CantidadInv" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sucursal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GuardarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GuardarResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarComponentePorFolio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="folio" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarComponentePorFolioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarComponentePorFolioResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarComponentePorMarca">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Marca" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarComponentePorMarcaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarComponentePorMarcaResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarComponentePorNombre">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarComponentePorNombreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarComponentePorNombreResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarComponentePorSucursal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Sucursal" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarComponentePorSucursalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarComponentePorSucursalResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SignUp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SignUpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SignUpResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BuscarTodosUsuarios">
+        <s:complexType />
+      </s:element>
+      <s:element name="BuscarTodosUsuariosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BuscarTodosUsuariosResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarSaldo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Numero" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Saldo" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegistrarSaldoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrarSaldoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarSaldo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Numero" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarSaldoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerificarSaldoResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AbonarSaldo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Saldo" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="NumTelefono" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AbonarSaldoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AbonarSaldoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GuardarSoapIn">
+    <wsdl:part name="parameters" element="tns:Guardar" />
+  </wsdl:message>
+  <wsdl:message name="GuardarSoapOut">
+    <wsdl:part name="parameters" element="tns:GuardarResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarComponentePorFolioSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarComponentePorFolio" />
+  </wsdl:message>
+  <wsdl:message name="BuscarComponentePorFolioSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarComponentePorFolioResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarComponentePorMarcaSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarComponentePorMarca" />
+  </wsdl:message>
+  <wsdl:message name="BuscarComponentePorMarcaSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarComponentePorMarcaResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarComponentePorNombreSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarComponentePorNombre" />
+  </wsdl:message>
+  <wsdl:message name="BuscarComponentePorNombreSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarComponentePorNombreResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarComponentePorSucursalSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarComponentePorSucursal" />
+  </wsdl:message>
+  <wsdl:message name="BuscarComponentePorSucursalSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarComponentePorSucursalResponse" />
+  </wsdl:message>
+  <wsdl:message name="SignUpSoapIn">
+    <wsdl:part name="parameters" element="tns:SignUp" />
+  </wsdl:message>
+  <wsdl:message name="SignUpSoapOut">
+    <wsdl:part name="parameters" element="tns:SignUpResponse" />
+  </wsdl:message>
+  <wsdl:message name="BuscarTodosUsuariosSoapIn">
+    <wsdl:part name="parameters" element="tns:BuscarTodosUsuarios" />
+  </wsdl:message>
+  <wsdl:message name="BuscarTodosUsuariosSoapOut">
+    <wsdl:part name="parameters" element="tns:BuscarTodosUsuariosResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarSaldoSoapIn">
+    <wsdl:part name="parameters" element="tns:RegistrarSaldo" />
+  </wsdl:message>
+  <wsdl:message name="RegistrarSaldoSoapOut">
+    <wsdl:part name="parameters" element="tns:RegistrarSaldoResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificarSaldoSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificarSaldo" />
+  </wsdl:message>
+  <wsdl:message name="VerificarSaldoSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificarSaldoResponse" />
+  </wsdl:message>
+  <wsdl:message name="AbonarSaldoSoapIn">
+    <wsdl:part name="parameters" element="tns:AbonarSaldo" />
+  </wsdl:message>
+  <wsdl:message name="AbonarSaldoSoapOut">
+    <wsdl:part name="parameters" element="tns:AbonarSaldoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServicioConectSoap">
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Guardar">
+      <wsdl:input message="tns:GuardarSoapIn" />
+      <wsdl:output message="tns:GuardarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComponentePorFolio">
+      <wsdl:input message="tns:BuscarComponentePorFolioSoapIn" />
+      <wsdl:output message="tns:BuscarComponentePorFolioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComponentePorMarca">
+      <wsdl:input message="tns:BuscarComponentePorMarcaSoapIn" />
+      <wsdl:output message="tns:BuscarComponentePorMarcaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComponentePorNombre">
+      <wsdl:input message="tns:BuscarComponentePorNombreSoapIn" />
+      <wsdl:output message="tns:BuscarComponentePorNombreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComponentePorSucursal">
+      <wsdl:input message="tns:BuscarComponentePorSucursalSoapIn" />
+      <wsdl:output message="tns:BuscarComponentePorSucursalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SignUp">
+      <wsdl:input message="tns:SignUpSoapIn" />
+      <wsdl:output message="tns:SignUpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscarTodosUsuarios">
+      <wsdl:input message="tns:BuscarTodosUsuariosSoapIn" />
+      <wsdl:output message="tns:BuscarTodosUsuariosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarSaldo">
+      <wsdl:input message="tns:RegistrarSaldoSoapIn" />
+      <wsdl:output message="tns:RegistrarSaldoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarSaldo">
+      <wsdl:input message="tns:VerificarSaldoSoapIn" />
+      <wsdl:output message="tns:VerificarSaldoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AbonarSaldo">
+      <wsdl:input message="tns:AbonarSaldoSoapIn" />
+      <wsdl:output message="tns:AbonarSaldoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServicioConectSoap" type="tns:ServicioConectSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Guardar">
+      <soap:operation soapAction="http://tempuri.org/Guardar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComponentePorFolio">
+      <soap:operation soapAction="http://tempuri.org/BuscarComponentePorFolio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComponentePorMarca">
+      <soap:operation soapAction="http://tempuri.org/BuscarComponentePorMarca" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComponentePorNombre">
+      <soap:operation soapAction="http://tempuri.org/BuscarComponentePorNombre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComponentePorSucursal">
+      <soap:operation soapAction="http://tempuri.org/BuscarComponentePorSucursal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignUp">
+      <soap:operation soapAction="http://tempuri.org/SignUp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarTodosUsuarios">
+      <soap:operation soapAction="http://tempuri.org/BuscarTodosUsuarios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarSaldo">
+      <soap:operation soapAction="http://tempuri.org/RegistrarSaldo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarSaldo">
+      <soap:operation soapAction="http://tempuri.org/VerificarSaldo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AbonarSaldo">
+      <soap:operation soapAction="http://tempuri.org/AbonarSaldo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServicioConectSoap12" type="tns:ServicioConectSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Guardar">
+      <soap12:operation soapAction="http://tempuri.org/Guardar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComponentePorFolio">
+      <soap12:operation soapAction="http://tempuri.org/BuscarComponentePorFolio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComponentePorMarca">
+      <soap12:operation soapAction="http://tempuri.org/BuscarComponentePorMarca" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComponentePorNombre">
+      <soap12:operation soapAction="http://tempuri.org/BuscarComponentePorNombre" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarComponentePorSucursal">
+      <soap12:operation soapAction="http://tempuri.org/BuscarComponentePorSucursal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SignUp">
+      <soap12:operation soapAction="http://tempuri.org/SignUp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscarTodosUsuarios">
+      <soap12:operation soapAction="http://tempuri.org/BuscarTodosUsuarios" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrarSaldo">
+      <soap12:operation soapAction="http://tempuri.org/RegistrarSaldo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarSaldo">
+      <soap12:operation soapAction="http://tempuri.org/VerificarSaldo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AbonarSaldo">
+      <soap12:operation soapAction="http://tempuri.org/AbonarSaldo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioConect">
+    <wsdl:port name="ServicioConectSoap" binding="tns:ServicioConectSoap">
+      <soap:address location="https://serviciologincomponentemovil.azurewebsites.net/ServicioConect.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServicioConectSoap12" binding="tns:ServicioConectSoap12">
+      <soap12:address location="https://serviciologincomponentemovil.azurewebsites.net/ServicioConect.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
